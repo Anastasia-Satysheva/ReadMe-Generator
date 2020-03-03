@@ -1,5 +1,5 @@
 const fs = require("fs");
-var request = require('request');
+let request = require('request');
 const axios = require("axios");
 const prompts = require('prompts');
 
@@ -70,14 +70,14 @@ const prompts = require('prompts');
                                 }
                             ];
                             const response = await prompts(questions);
-                            var readme = fs.createWriteStream("README.md");
+                            let readme = fs.createWriteStream("README.md");
                             readme.write("# " + response.title + '\n');
-                            var badge_split = response.badge.split(',');
+                            let badge_split = response.badge.split(',');
                             readme.write(`![Generic badge](https://img.shields.io/badge/${badge_split[0]}-${badge_split[1]}-${badge_split[2]}.svg) \n` );
                             readme.write('# Description  \n' + response.description + '\n');
                             readme.write('# Table of content \n');
-                            var content_split = response.content.split(',');
-                            var u;
+                            let content_split = response.content.split(',');
+                            let u;
                             for (u = 0; u<content_split.length; ++u){
                                 readme.write('* ' + content_split[u] + '\n');
                             }
